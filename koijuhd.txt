@@ -1,0 +1,20 @@
+on main index:
+- create party (parties/new)
+- select party (/parties)
+
+linked select party:
+- display all parties (/parties)
+
+
+linked show party: clickable ^ (/parties/id)
+
+on show party:
+- list all previous itesms
+- link to parties/id/orders/new
+- linked to /parties/id/recipet
+
+
+on parties/id/orders/new
+- list of items checkbox
+-submit to parties/id/orders
+link back to parties

@@ -1,3 +1,4 @@
-class Orders < ActiveRecord::Base
-  belongs_to :restaurant
+class MenuItem < ActiveRecord::Base
+  has_many :food_orders
+  has_many :parties, through: :food_orders
 end
