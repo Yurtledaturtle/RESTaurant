@@ -11,10 +11,23 @@ linked show party: clickable ^ (/parties/id)
 on show party:
 - list all previous itesms
 - link to parties/id/orders/new
-- linked to /parties/id/recipet
+- linked to /parties/id/reciept
 
 
 on parties/id/orders/new
 - list of items checkbox
 -submit to parties/id/orders
 link back to parties
+
+####Food Item: An item of food on the menu (aka menu item)
+- name?
+- cuisine type?
+- what is the price?
+- any allergens?
+- more info?
+
+####Party: A single group of people
+- table number?
+- number of guests?
+- did they pay yet?
+- more info?

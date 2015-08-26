@@ -1,0 +1,48 @@
+<h3> Table Number <%= @party.table_number %> </h3>
+<br>
+<%= @party.num_of_party %> members in party
+<br>
+Party Status: <%= @party.status%>
+<br>
+
+
+<% @food_orders.each do |food_order| %>
+<p>
+   <%=food_order.menu_item.name%>
+ </p>
+    <% end %>
+
+
+
+<form action="/../food_orders" method="post">
+
+  <select name="food_order[party_id]">
+      <option value="<%= @party.id %>">
+        <%= @party.table_number %>
+      </option>
+  </select>
+
+  <select name="food_order[menu_item_id]">
+    <% @menu_items.each do |menu_item| %>
+      <option value="<%= menu_item.id %>">
+        <%= menu_item.name %>
+      </option>
+    <% end %>
+  </select>
+
+
+
+  <input type="submit" value="Add to Party Order!">
+
+</form>
+
+
+
+<form class = "link" action="/parties">
+     <input type="submit" value="Back to Open Party">
+ </form>
+
+
+ <form class = "link" action="/">
+      <input type="submit" value="Home">
+  </form>

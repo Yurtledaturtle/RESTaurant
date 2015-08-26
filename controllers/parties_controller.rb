@@ -1,21 +1,37 @@
 class PartiesController < ApplicationController
 
-  # '/parties'
+#Party Index-show all the parties
   get '/' do
     @parties = Party.all
     erb :'parties/index'
   end
 
-  # '/parties/new'
+#create new party
   get '/new' do
+    @parties = Party.all
     erb :'parties/new'
   end
 
-  # '/parties'
+#post new party
   post '/' do
-    Party.create(params[:party])
-    redirect '/'  #direct to the SHOW
+    party = Party.create(params[:party])
+    redirect "/parties/#{party.id}"
   end
 
+#show party
+  get '/:id' do
+    @party = Party.find(params[:id])
+    @food_orders = FoodOrder.all.where(party_id: params[:id])
+    @menu_items = MenuItem.all
+    erb :'parties/show'
+  end
+
+#delete party
+  delete '/:id' do
+    party = Party.find(params[:id])
+    party.food_orders.each {|food_order| food_order.delete }
+    party.delete()
+    redirect '/'
+  end
 
 end

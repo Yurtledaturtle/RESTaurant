@@ -1,0 +1,15 @@
+<ul>
+  <% @menu_items.each do |menu_item| %>
+    <li>
+        <%= menu_item.name %>
+        <form action="/menu_items/<%= menu_item.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit"> Remove Menu Item </button>
+        </form>
+    </li>
+  <% end %>
+</ul>
+
+<form class = "link" action="/menu_items/new">
+     <input type="submit" value="Add New Item">
+ </form>

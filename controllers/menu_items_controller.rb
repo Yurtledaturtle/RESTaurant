@@ -1,28 +1,35 @@
 class MenuItemsController < ApplicationController
 
-  # '/menu_items'
   get '/' do
     @menu_items = MenuItem.all
     erb :'menu_items/index'
   end
 
-  # '/menu_items/new'
+
   get '/new' do
+    @menu_items = MenuItem.all
     erb :'menu_items/new'
   end
 
-  # '/menu_items'
+
   post '/' do
-    MenuItem.create(params[:menu_item])
-    redirect '/'  # direct to the SHOW
+    menu_item = MenuItem.create(params[:menu_item])
+    redirect "/"
   end
 
-  # '/menu_items'
-  delete '/:id' do
-    menu_item = MenuItem.find(params[:id])
-    menu_item.food_orders.each {|food_order| food_order.delete }
-    menu_item.delete()
-    redirect '/'
-  end
+  #delete item
+    delete '/:id' do
+      menu_item = MenuItem.find(params[:id])
+      menu_item.food_orders.each {|food_order| food_order.delete }
+      menu_item.delete()
+      redirect '/'
+    end
+
+    delete '/:id' do
+      party = Party.find(params[:id])
+      party.food_orders.each {|food_order| food_order.delete }
+      party.delete()
+      redirect '/'
+    end
 
 end

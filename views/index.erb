@@ -1,0 +1,20 @@
+<h1>Proficient Provisions</h1>
+<form class = "link" action="/parties/new">
+     <input type="submit" value="Open New Party">
+ </form>
+
+<section class="parties">
+  <h3>Party Listing</h3>
+
+  <ul>
+    <% @parties.each do |party| %>
+      <li>
+        <a href="/parties/<%= party.id %>">Table Number <%= party.table_number %></a>
+        <form action="/parties/<%= party.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit"> Remove </button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</section>

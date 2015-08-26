@@ -1,0 +1,21 @@
+<form action="/food_orders" method="post">
+
+  <select name="food_order[menu_item_id]">
+    <% @menu_items.each do |menu_item| %>
+      <option value="<%= menu_item.id %>">
+        <%= menu_item.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <select name="food_order[party_id]">
+    <% @parties.each do |party| %>
+      <option value="<%= party.id %>">
+        <%= party.table_number %>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Order Up!">
+
+</form>
