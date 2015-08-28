@@ -30,7 +30,7 @@ class PartiesController < ApplicationController
   delete '/:id' do
     party = Party.find(params[:id])
     party.food_orders.each {|food_order| food_order.delete }
-    party.delete()
+    party.delete
     redirect '/'
   end
 

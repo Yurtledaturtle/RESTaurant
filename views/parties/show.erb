@@ -5,16 +5,14 @@
 Party Status: <%= @party.status%>
 <br>
 
-
 <% @food_orders.each do |food_order| %>
 <p>
    <%=food_order.menu_item.name%>
+   <%=food_order.menu_item.price%>
  </p>
     <% end %>
 
-
-
-<form action="/../food_orders" method="post">
+<form action="/food_orders" method="post">
 
   <select name="food_order[party_id]">
       <option value="<%= @party.id %>">
@@ -30,19 +28,15 @@ Party Status: <%= @party.status%>
     <% end %>
   </select>
 
-
-
   <input type="submit" value="Add to Party Order!">
 
 </form>
-
-
 
 <form class = "link" action="/parties">
      <input type="submit" value="Back to Open Party">
  </form>
 
 
- <form class = "link" action="/">
+<form class = "link" action="/">
       <input type="submit" value="Home">
-  </form>
+</form>
