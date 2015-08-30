@@ -6,8 +6,8 @@
 
   <% @menu_items.each_with_index do |menu_item, index| %>
   <div class = "item-show six columns">
-      <h3>  <%= menu_item.name %> </h3>
-        <h5> <%= menu_item.sub_category%>   $<%=('%.2f' % (menu_item.price))%> </h5>
+      <h3> <%= menu_item.sub_category%> </h3>
+        <h5>  <%= menu_item.name %> | $<%=('%.2f' % (menu_item.price))%> </h5>
         <p><%=menu_item.description%>
 
         </p>
