@@ -1,8 +1,18 @@
-<h3> Enter New Menu Item Info</h3>
+<h3> Enter New Item Information </h3>
 
 
 <form action="/menu_items" method="post">
   <input type="text" name="menu_item[name]" placeholder="Item Name">
-  <input type="text" name="menu_item[price]" placeholder="$$$$">
-  <input type="submit" value="Add to menu">
+  <select name="menu_item[category]"><% @menu_items.each do |menu_item| %> <option value="<%= menu_item.category %>">  <%= menu_item.category %>  </option> <% end %></select>
+  <input type="text" name="menu_item[sub_category]" placeholder="Sub-Category">
+  <input type="text" name="menu_item[price]" placeholder="$.....">
+  <br>
+  <input type="text" style="width: 40%" name="menu_item[description]" placeholder="Tell Us More About IT">
+  <input type="submit" value="Go!">
 </form>
+<br>
+<br>
+
+<form class = "link" action="/">
+     <input type="submit" value="Home">
+ </form>

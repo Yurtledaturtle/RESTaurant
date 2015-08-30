@@ -1,0 +1,17 @@
+<h3> Enter New Ticket Information </h3>
+
+<div id ="table_input" class = "row">
+  <div >
+    <form action="/parties" method="post">
+      <h4> Table Number <%= @table_number %> </h4>
+      <input type="hidden" name="party[table_number]" value = "<%= @table_number%>">
+      <input type="text" name="party[num_of_party]" placeholder="Number of Party">
+      <input type="submit" value="Let's Go!">
+    </form>
+  </div>
+</div>
+
+
+<form class = "link" action="/">
+     <input type="submit" value="Home">
+ </form>

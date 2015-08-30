@@ -1,42 +1,73 @@
-<h3> Table Number <%= @party.table_number %> </h3>
-<br>
-<%= @party.num_of_party %> members in party
-<br>
-Party Status: <%= @party.status%>
-<br>
 
-<% @food_orders.each do |food_order| %>
-<p>
-   <%=food_order.menu_item.name%>
-   <%=food_order.menu_item.price%>
- </p>
-    <% end %>
+<h3 class = "tableshow"> Table Number <%= @party.table_number %> </h3>
+<h5 class ="tableshow"><%= @party.num_of_party %> members in party</h5>
+<h5 class ="tableshow"> Ticket Status: <%= @party.status%></h5>
+Add Some Eats!
+<br>
+<div class = "order-input">
+<form action="/../food_orders" method="post">
 
-<form action="/food_orders" method="post">
-
-  <select name="food_order[party_id]">
-      <option value="<%= @party.id %>">
+  <select class= "order_selects" name="food_order[party_id]">
+      <option value="<%=@party.id %>">
         <%= @party.table_number %>
       </option>
   </select>
 
-  <select name="food_order[menu_item_id]">
+  <select class= "order_selects" name="food_order[menu_item_id]">
     <% @menu_items.each do |menu_item| %>
       <option value="<%= menu_item.id %>">
         <%= menu_item.name %>
       </option>
     <% end %>
   </select>
-
-  <input type="submit" value="Add to Party Order!">
+  <input id="order-submit" class ="button" type="submit" value="GO!">
 
 </form>
+</div>
+
+
+<% @food_orders.each do |food_order| %>
+<p class ="tableshowelement">
+   <%=food_order.menu_item.name%>
+    <form class ="tableshowelement" action="/food_orders/<%=food_order.id%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class ="ticket-item" type="submit"> x </button>
+        </form>
+ </p>
+    <% end %>
+
+<div id="reciept-open-modal">
+<button class ="modal-style" >reciept?</button>
+  <div  class="modal" >
+      <div class="reciept-modal-content">
+        <span id="reciept-close-modal">Print</span>
+        <div class="reciept-modal-body">
+          <h3> THANKS FOR DINING </h3>
+
+            <%total = 0 %>
+          <% @food_orders.each do |food_order| %>
+            <h5 class = "reciept"><%=food_order.menu_item.name%> -- $<%=('%.2f' % (food_order.menu_item.price))%></h5>
+             <% total += food_order.menu_item.price%>
+          <%end%>
+
+              <h5 class= "reciept-total">Your Total is: $<%=('%.2f' % (total))%></h5>
+              <p class ="tip">Tip Please! 10%: $<%=('%.2f' % (total * 0.1))%> | 15%: $<%=total * 0.15%>0 | 20%: $<%=total * 0.2%>0 </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<br>
 
 <form class = "link" action="/parties">
-     <input type="submit" value="Back to Open Party">
+     <button type="submit" value="Back to Open Tickets">Back to Open Tickets </button>
  </form>
 
 
-<form class = "link" action="/">
-      <input type="submit" value="Home">
-</form>
+ <form class = "link" action="/">
+      <button  type="submit" value="Home"> Home </button>
+  </form>
+
+  <form action="/parties/<%=@party.id%>" method="post">
+    <input type="submit" value="Close Ticket">
+    </form>

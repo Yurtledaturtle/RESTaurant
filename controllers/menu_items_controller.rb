@@ -1,6 +1,11 @@
 class MenuItemsController < ApplicationController
 
-  get '/' do
+  get '/edit' do
+      @menu_items = MenuItem.all
+      erb :'menu_items/edit'
+    end
+
+  get '/chef' do
     @menu_items = MenuItem.all
     erb :'menu_items/index'
   end
@@ -14,14 +19,14 @@ class MenuItemsController < ApplicationController
 
   post '/' do
     menu_item = MenuItem.create(params[:menu_item])
-    redirect 'menu_items'
+    redirect '/'
   end
 
   #delete item
      delete '/:id' do
        menu_item = MenuItem.find(params[:id])
        menu_item.delete()
-       redirect 'menu_items'
+       redirect '/'
      end
 
 end

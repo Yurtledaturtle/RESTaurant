@@ -2,9 +2,9 @@ require 'bundler'
 Bundler.require()
 
 # MODELS
-require './models/menu_item'
-require './models/food_order'
-require './models/party'
+require './models/menu_item.rb'
+require './models/food_order.rb'
+require './models/party.rb'
 
 # CONTROLLERS
 require './controllers/application_controller'

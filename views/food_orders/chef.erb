@@ -1,0 +1,21 @@
+<h2>CHEF'S KITCHEN</h2>
+
+<%@food_orders.each do |food_order|%>
+
+  <% if food_order.status == 'open' %>
+  <h5 class = 'order' data-start-time= "<%=food_order.created_at%>"> Table Number: <%= food_order.party.table_number%> - <%= food_order.menu_item.name %> | <%= food_order.menu_item.category %> </h5>
+
+
+  <form action="/food_orders/chef/<%=food_order.id%>" method="post">
+    <input class ="order-up"type="submit" value="ORDER UP">
+    </form>
+ <%end%>
+<%end%>
+<br>
+<form class ="link" action="/parties">
+<input type="submit" value="Back To All Parties">
+ </form>
+
+ <form class = "link" action="/">
+      <button type="submit" value="Home"> Home </button>
+  </form>
