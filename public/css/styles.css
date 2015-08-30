@@ -265,10 +265,12 @@ select {
 }
 
 .parties{
-  border: 2px solid white;
+  border: 2px solid red;
+  background-color: white;
   list-style: none;
   width: 150%;
   margin-left: -60%;
+  border-radius: 10px;
 }
 
 .parties a{
