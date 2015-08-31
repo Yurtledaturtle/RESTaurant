@@ -6,10 +6,10 @@ A app designed for restaurant staff to manage incoming orders. Works on mobile.
 
 ### Screenshots
 
-<img src="/Users/Matt-Air/src/wdi/RESTaurant/public/images/Screenshot.png">
+<img src="https://raw.githubusercontent.com/Yurtledaturtle/RESTaurant/master/public/images/Screenshot.png">
 
 ### ERD
-<img src="/Users/Matt-Air/src/wdi/RESTaurant/public/images/RESTaurant_ERD.png">
+<img src="https://raw.githubusercontent.com/Yurtledaturtle/RESTaurant/master/public/images/RESTaurant_ERD.png">
 
 ---
 
