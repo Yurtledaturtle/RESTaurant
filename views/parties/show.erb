@@ -1,8 +1,8 @@
 
 <h3 class = "tableshow"> Table Number <%= @party.table_number %> </h3>
 <h5 class ="tableshow"><%= @party.num_of_party %> members in party</h5>
-<h5 class ="tableshow"> Ticket Status: <%= @party.status%></h5>
-Add Some Eats!
+<h5 class ="tableshow"> Party Status: <%= @party.status%></h5>
+Add To Your Order
 <br>
 <div class = "order-input">
 <form action="/../food_orders" method="post">
@@ -37,7 +37,7 @@ Add Some Eats!
     <% end %>
 
 <div id="reciept-open-modal">
-<button class ="modal-style" >reciept?</button>
+<button class ="modal-style" >reciept here</button>
   <div  class="modal" >
       <div class="reciept-modal-content">
         <span id="reciept-close-modal">X</span>

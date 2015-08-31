@@ -1,22 +1,16 @@
-<h2> Floor Status </h2>
+<h5> Tables </h5>
 
 <form class = "link" action="/parties/new">
-     <input type="submit" value="Open A New Ticket">
+     <input type="submit" value="Open A New Party">
  </form>
  <form class = "link" action="/">
       <input type="submit" value="Home">
   </form>
 
-  <% @parties.each do |party| %>
-<% if party.status == 'open' %>
-    <h5>  Table <%=party.table_number%>, Party of <%=party.num_of_party%>. Ticket Status: <%= party.status %></h5>
-<%end%>
-  <% end %>
-
 
 <div id="index-floor">
 <div class ="row">
-  <%(1..16).to_a.each do |num| %>
+  <%(1..8).to_a.each do |num| %>
     <%occupied = false %>
     <% @parties.each do |party|%>
      <% if party.table_number == num %>
