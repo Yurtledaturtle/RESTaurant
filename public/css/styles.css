@@ -269,6 +269,8 @@ select {
   background-color: white;
   list-style: none;
   width: 150%;
+  margin: 10%;
+  margin-top: 15%;
   margin-left: -60%;
   border-radius: 10px;
 }
